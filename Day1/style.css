@@ -1,0 +1,44 @@
+/* body styling */
+
+body{
+    background:url('img/pexels-photo-9986229.jpeg')no-repeat center center/cover;
+    height:100vh;
+    color:#fff;
+}
+h2{
+    font-size:50px;
+    text-align:center;
+    line-height:20px;
+    margin:100px auto;
+    text-shadow: 0 0 10px #e74c3c;
+
+}
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff; 
+}
+kbd{
+    display:block;
+    font-size:50px;
+}
+.drum-key{
+    border:2px solid #000;
+    margin:0 20px;
+    background:rgba(0,0,0,0.7);
+    text-shadow: 0 0 5px #000;
+    width:100%;
+    text-align:center;
+    border-radius:10px;
+    transition:all .9s; 
+
+}
+span{
+    color:#e74c3c;
+}
+.playing{
+    transform:scale(2);
+    border-color:#e74c3c;
+    box-shadow:0 0 8px #e74c3c;
+}
