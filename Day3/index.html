@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS VARIABLES</title>
+</head>
+<style>
+:root{
+   --base: #f59e42;
+   --spacing:15px;
+   --blur:10px;
+}
+
+body{
+    background:#123456;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1{
+    text-align:center;
+    color:#fff;
+    font-size:40px;
+}
+span{
+    color:var(--base)
+}
+.container{
+    text-align:center;
+    font-size: 30px;
+    color:#fff;
+    font-weight:100;
+    margin:40px auto;
+}
+input[type="range"]{
+    accent-color:#fff;
+    width:90px;
+}
+img{
+    padding:var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+    width:500px;
+    height:300px;
+    margin:10px 200px;
+}
+
+</style>
+<body>
+    <h1>Changing Css Variables with <span>JS</span></h1>
+    <div class="container">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" value="10" data-sizing="px" max="150"  min="10">
+        
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" value="10" data-sizing="px" min="0" max="25"/>
+
+
+        <label>Color</label>
+        <input type="color" name="base" value="#f59e42" />
+
+    </div>
+
+   <img src="./free-photo-of-aerial-view-of-forest-and-river.jpeg" alt="img">
+    
+    
+    <script>
+       const inputs = document.querySelectorAll('.container input');
+
+       function handleUpdate (){
+        const space = this.dataset.sizing || "";
+        console.log(this.dataset)
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + space)
+       }
+
+       inputs.forEach(input => input.addEventListener('change', handleUpdate));
+       inputs.forEach(input => input.addEventListener('mouseover', handleUpdate));
+
+    </script>
+</body>
+</html>
