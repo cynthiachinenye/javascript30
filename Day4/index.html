@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Console.log to see the array cardio</h1>
+
+    <script>
+    //  array cardio Day1
+    // create an object of an array
+
+    const inventors = [
+        {
+            firstName:"Abert",
+            lastName:"Einstern",
+            year:1856,
+            passed:1995,
+        },
+        {
+            firstName:"Isaac",
+            lastName:'Newton',
+            year:1861,
+            passed:1932,
+        },
+        {
+            firstName:"Galileo",
+            lastName:'Galili',
+            year:1561,
+            passed:1934,
+        },
+        {
+            firstName:"Mark",
+            lastName:'Charles',
+            year:1867,
+            passed:1955,
+        },
+        {
+            firstName:"Johannes",
+            lastName:'Kepler',
+            year:1571,
+            passed:1630,
+        },
+        {
+            firstName:"Nicolas",
+            lastName:'Copernius',
+            year:1473,
+            passed:1542,
+        },
+        {
+            firstName:"Max",
+            lastName:'planck',
+            year:1858,
+            passed:1947,
+        },
+    ];
+
+
+    const peoples =["Beck, Glenn", "Carl,Benedict", "Samuel,Capio",
+"Bellow,Saul", "Robert,John","Michael,David", "William,James", 
+"Richard,Joseph", "Thomas,Christopher","Daniel,Matthew",
+"Anthony, Charles", "Mark,Donald", "Steven,Andrew",
+"Paul,Joshua","Kenneth,Kevin","Brian,George","Timothy,Ronald",
+"Jason,Edward","Jeffrey,Ryan","Jacob,Gary","Nicholas,Eric",
+"Jonathan,Stephen","Larry,Justin","Scott,Brandon","Benjamin,Samuel"];
+   
+   
+// questions to answer  array prototypes
+// 1. (.filter())filter the list of inventors for those who are born in the year 1500's
+ const fifteen = inventors.filter(function(inventor){
+    if(inventor.year >= 1500 && inventor.year<=1600){
+        return true;
+        
+    }
+ })
+ console.table(fifteen);
+
+// 2. (.map()) give us N ARRAY OF INVENTORY FIRST AND LAST NAMES
+const names = inventors.map(name=> name.firstName + " " + name.lastName)
+    
+        console.log(names)
+
+
+
+//  3. (.SORT()) SORT THE INVENTORS BY BIRTHDATE OLDEST AND YOUNGEST
+const birthdates = inventors.sort((oldest,youngest)=>{
+    if(oldest.year > youngest.year){
+        return 1;
+    }else{
+        return -1;
+    }
+})
+console.table(birthdates)
+
+
+// 4. (.REDUCE()) HOW MANY YEARS DID ALL THE INVENTORS LIVE
+
+const live = inventors.reduce((total, inventor) =>{
+    return total + (inventor.passed - inventor.year)
+},0)
+console.log(live)
+
+
+// 5. SORT THE INVENTORS BY YEARS LIVED
+ const inventor = inventors.sort(function(a,b){
+    const first =a.passed -a.year;
+
+    const second = b.passed -b.year;
+    if(first > second){
+        return -1;
+    }else{
+       return 1;
+    }
+ });
+ console.table(inventor)
+
+// 6. CREATE A LIST OF BOULEVARDS IN PARIS THAT CONTAIN "DE" ANYWHERE IN THE NAME "https://en.wikipedia.org/wiki/category:Boulevards _in_paris"
+
+
+// 7. sort exercise  sort the people alphabetically by lastname.
+const people = peoples.sort(function(first,second){
+    const [a, ab] = first.split(", ");
+    const[b, bc] =  second.split(",");
+    
+    if(a>b){
+        return 1
+    }else{
+        return -1;
+    }
+});
+console.log(people)
+
+// 8 reduce exercise
+// sum up the instances of each of these
+
+const data=[
+    'car',"car",'truck','truck','bike','walk','car', 'var', 'bike','walk','clap','trekk','car','van','car','truck'];
+
+const  items = data.reduce(function(obj,item){
+    if(!obj[item]){
+        obj[item]=0;
+    }
+  obj[item]++;
+  return obj
+},{});
+console.log(items)
+   </script>
+</body>
+</html>
