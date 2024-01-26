@@ -5,7 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flex panel 📌</title>
 </head>
-<body>
+<style>
+html{
+    background:#ffc900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:20px;
+    font-weight:200;
+}
+body{
+    margin:0;
+}
+*,*:before *:after{
+    box-sizing: inherit;
+}
+.panels{
+    min-height:100vh;
+    display:flex;
+    overflow:hidden;
+}
+.panel{
+    background:#6b0;
+    flex:1;
+    display:flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow:inset 0 0 5px rgba(255,255,255,1.5);
+    color:#fff;
+    transition:  font-size 0.7s, cubic-bezier(0.61,-0.19, 0.7 -0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7, -0.11), background 0.2s;
     
+}
+.panel > *{
+    margin:0;
+    width:100%;
+    transition:all 0.5s;
+    flex:1 0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+.panel p{
+    text-transform:uppercase;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 8px rgba(0,0,0,0,0.7), 0 0 16px rgba(0,0,0,0,0.5);
+    font-weight:100;
+    font-size:32px;
+}
+.panel :nth-child(2){
+    font-size: 62px;
+}
+.panel > *:first-child{
+    transform:translateY(-100%)
+}
+.panel.active > *:first-child{
+    transform:translateY(0)
+}
+.panel > *:last-child{
+    transform:translateY(100%)
+}
+.panel.active > *:last-child{
+    transform:translateY(0)
+}
+ .panel1{
+        background:url('./imgs/pexels-photo-11267798.jpeg')no-repeat center center/cover;
+
+    }
+    .panel2{
+        background:url('./imgs/free-photo-of-fields-of-barley-and-distant-mountains-at-dusk.jpeg')no-repeat center center/cover;
+    }
+    .panel3{
+        background:url('./imgs/pexels-photo-11634722.jpeg')no-repeat center center/cover;
+    }
+    .panel4{
+        background:url('./imgs/pexels-photo-1374064.jpeg')no-repeat center center/cover;
+    }
+    .panel5{
+        background:url('./imgs/pexels-photo-1612861.jpeg')no-repeat center center/cover;
+    } 
+.panel.open{
+    flex:5;
+    font-size:40px;
+    /* transition:.5s; */
+}
+   
+</style>
+<body>
+    <div class="panels">
+        <div class="panel panel1">
+            <p>Hey</p>
+            <p>Let's</p>
+            <p>Code</p>
+        </div>
+        <div class="panel panel2">
+            <p>Give</p>
+            <p>Take</p>
+            <p>Receive</p>
+        </div>
+        <div class="panel panel3">
+            <p>Experince</p>
+            <p>It</p>
+            <p>Today</p>
+        </div>
+        <div class="panel panel4">
+            <p>No Pain</p>
+            <p>And</p>
+            <p>No Gain</p>
+        </div>
+        <div class="panel panel5">
+            <p>No</p>
+            <p>Giving</p>
+            <p>Up</p>
+        </div>
+    </div>
+    <script>
+        const panel = document.querySelectorAll('.panel');
+
+        function openToggle (){
+          console.log('hi')
+         this.classList.toggle('open')
+         
+       
+        }
+
+        function activeToggle(e){
+            console.log(e, "hello");
+
+            if(e.propertyName.includes('flex-grow')){
+                this.classList.toggle('active');
+            }
+              
+           
+        }
+ panel.forEach(panels=>panels.addEventListener('click',openToggle));
+
+ panel.forEach(active => active.addEventListener('transitionend',activeToggle))
+
+    </script>
 </body>
 </html>
