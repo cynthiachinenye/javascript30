@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Type</title>
+</head>
+<style>
+    html{
+        background:#ffc900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+    }
+    body{
+        height:100vh;
+    }
+    form{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    #search{
+        width:250px;
+        height:50px;
+        border:5px solid #e6dfdf;
+        margin-top:100px;
+        
+    }
+#search::placeholder{
+        text-align: center;
+        font-size:20px;
+        color:#e6dfdf;
+       
+    }
+    .suggestion{
+        list-style: none;
+        margin-top: 0%;
+        text-align: left; 
+    }
+    .filter{
+       height:25px;
+       width:190px;
+       font-size:14px;
+       padding:10px;
+       margin-right:25px;
+       color: #c5bdbd;
+ 
+    }
+    .filter1{
+        background-color:#fff;
+        border:2px solid #e6dfdf;
+    }
+    .filter2{
+        background-color:#fff;
+        border:2px solid #e6dfdf;
+    }
+</style>
+<body>
+    <form>
+        <input type="search" placeholder="City or State"  id="search">
+        <ul class="suggestion">
+            <li><div class="filter filter1"> Filter For A city</div></li>
+            <li><div  class="filter filter2">Or A State</div></li>
+        </ul>
+    </form>
+    
+    <script>
+        const point = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    
+       const cities = []
+        fetch(point).then(bolb => bolb.json())
+        .then(data=>cities.push(...data))
+
+        function toMatch (wordToMatch, cities){
+            return cities.filter(place => {
+
+                const regex = new RegExp(wordToMatch,"gi")
+                return place.city.match(regex) || place.state.match(regex)
+            });
+
+        } 
+        // function numberWithCommas(x){
+        //     return x.toString().replace(/\B(?=(/d{3})+?!\d))/g,',');
+        // }
+        function displayMatch (){
+            const match = toMatch(this.value, cities);
+            const a = match.map(place => {
+                
+                const regex = new RegExp(this.value, 'gi');
+                const cityName = place.city.replace(regex, `<span class="h1">${this.value}</span>`);
+                const stateName = place.state.replace(regex,`<span class="h1">${this.value}</span>`);
+
+                return 
+
+                ` <li>
+                   
+                    <span class="name">${place.city}, ${place.state}</span>
+                    <span class="population"> ${place.population}</span>
+                    
+                    </li> `
+
+            }).join('');
+
+            suggestion.innerHtml = a
+        }
+       
+        const inputSearch = document.querySelector('#search')
+       const suggestion = document.querySelector('.suggestion')
+
+       inputSearch.addEventListener('change',displayMatch);
+       inputSearch.addEventListener('keyup',displayMatch);
+    </script>
+</body>
+</html>
