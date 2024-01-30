@@ -5,7 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>using canvas</title>
 </head>
+<style>
+    html{
+        margin:0;
+    }
+</style>
 <body>
-    
+    <canvas id="myCanvas" width="800" height="800"></canvas>
 </body>
+<script>
+    const canvas = document.querySelector("#myCanvas");
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.strokeStyle = "#bada55";
+    ctx.lineJoin = "round";
+    ctx.linecap = "round";
+    ctx.linewidth = 80;
+     
+    let drawing = false;
+    let x = 0;
+    let y =0;
+
+    function  draw (e){
+        if(!drawing) return ;
+        console.log(e)
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(e.offsetX,e.offsetY);
+        ctx.stroke();
+        [x , y] = [e.offsetX, e.offsetY];
+        ctx.strokeStyle= 100
+
+    }
+    
+    canvas.addEventListener('mousedown',(e) => {
+         drawing = true;
+         x= e.offsetX;
+         y=e.offsetY;
+    })
+    canvas.addEventListener('mousemove', draw)
+    canvas.addEventListener('mouseup', ()=> drawing = false)
+    canvas.addEventListener('mouseout', () => drawing = false)
+   </script>
 </html>
