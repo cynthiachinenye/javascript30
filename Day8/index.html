@@ -20,32 +20,52 @@
     canvas.height = window.innerHeight;
     ctx.strokeStyle = "#bada55";
     ctx.lineJoin = "round";
-    ctx.linecap = "round";
-    ctx.linewidth = 80;
+    ctx.lineCap = "round";
+    ctx.lineWidth= 100;
+    ctx.globalCompositionOperator = "xor"
+    
      
     let drawing = false;
     let x = 0;
     let y =0;
+    let hue = 0;
+    let direction = true;
 
     function  draw (e){
         if(!drawing) return ;
         console.log(e)
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+        ctx.lineWidth =hue;
         ctx.beginPath();
         ctx.moveTo(x,y);
         ctx.lineTo(e.offsetX,e.offsetY);
         ctx.stroke();
         [x , y] = [e.offsetX, e.offsetY];
-        ctx.strokeStyle= 100
+       
+        hue++;
+        if(hue >= 360){
+            hue = 0;
+        }
 
+        if(ctx.lineWidth>=100||ctx.lineWidth<= 1){
+            direction = !direction
+        }
+
+        if(direction){
+            ctx.lineWidth++;
+        }else{
+            ctx.lineWidth--;
+        }
     }
     
     canvas.addEventListener('mousedown',(e) => {
          drawing = true;
-         x= e.offsetX;
-         y=e.offsetY;
-    })
-    canvas.addEventListener('mousemove', draw)
-    canvas.addEventListener('mouseup', ()=> drawing = false)
-    canvas.addEventListener('mouseout', () => drawing = false)
+         [x,y]=[e.offsetX, e.offsetY];
+    });
+    canvas.addEventListener('mousemove', draw);
+
+    canvas.addEventListener('mouseup', ()=> drawing = false);
+
+    canvas.addEventListener('mouseout', () => drawing = false);
    </script>
 </html>
