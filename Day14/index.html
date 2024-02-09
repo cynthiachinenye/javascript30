@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and arrays </title>
+</head>
+<body>
+    <h1>Object and Arrays- </h1>
+    <p>Reference  VS  Copy</p>
+    <style>
+        html{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+
+        }
+        body{
+            background:#ffca60;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h1{
+            font-size:30px;
+        }
+        p{
+            font-size:20px;
+            font-weight:bold;
+        }
+    </style>
+    <script>
+        // start with strings, numbers and booleans
+        let  num = 100;
+        let num2 = num
+        console.log(num,num2);
+        num2=200;
+        console.log(num,num2);
+
+        let name = 'cynthia';
+        let name2 = name;
+        console.log(name,name2);
+        name2='cynthiablessing';
+        console.log(name,name2)
+        //let's say we have an array
+
+        const teamPlayers =['cynth', 'kachi', 'ngo','sarah']
+        const team= teamPlayers;
+        console.log(teamPlayers,team)
+
+        // and we want to make a copy of it
+        // team[3]='wes'
+        // you might think we an just do something like this
+        const team2 = teamPlayers.slice();
+        team2[3]='wes'
+        // however what happens when we update that array
+        // now here is the problem
+        // oh no- we have edited the original array too!
+        // why? it's because that is an array reference , not an array copy. they both point to the same array
+        // so, how do we fix this? we take a copy instead!
+        // one day
+        // or create a new array and concat the old one in
+
+        const team3 = [].concat(teamPlayers)
+        const team4 =[...teamPlayers];
+        team4[3]='hello world';
+        // using es6
+
+       const team5 = Array.from(teamPlayers);
+
+       const person ={
+        name:'cynthia morgan',
+        age:100,
+       }
+
+       const cap = Object.assign({},person,{number:99, age:12})
+       console.log(person);
+       console.log(cap)
+
+
+       const cap2 ={...person};
+       console.log(cap2);
+
+       const cyndi ={
+        name:'cyndy',
+        age:100,
+        socials:{
+            facebook:'@cyndymorgain',
+            twitter:'@cyndy-bless',
+        }
+       };
+       console.clear();
+       console.log(cyndi);
+       const dev = Object.assign({}, cyndi);
+       const dev2 = JSON.parse(JSON.stringify(cyndi));
+       console.log(dev,dev2)
+    </script>
+</body>
+</html>
