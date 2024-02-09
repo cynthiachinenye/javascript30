@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slide In on Scroll</title>
+  </head>
+  <style>
+    html{
+        box-sizing: border-box;
+        background: #ffc600;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    body{
+        margin:0;
+    }
+    *,*:before,*:after{
+        box-sizing: inherit;
+
+    }
+    .container{
+        max-width: 800px;
+        margin:100px auto;
+        background:#fff;
+        padding:40px;
+        justify-content: center;
+    }
+    .align-left{
+        float:left;
+        margin-right:20px;
+    }
+    img{
+        width:300px;
+        /* height:250px; */
+
+    }
+    .align-right{
+        float:right;
+        margin-right:20px;
+    }
+    .slide-in{
+        opacity:0;
+        transition:all .5s;
+    }
+    .align-left.slide-in{
+        transform:translateX(-30%) scale(0.95);
+    }
+    .align-right.slide-in{
+        transform: translateX(30%) scale(0.95);
+    }
+    .slide-in.active{
+        opacity:1;
+        transform:translateX(0%) scale(1);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h2>Slide in on Scroll</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam in
+        deleniti optio aperiam illum obcaecati eveniet incidunt autem illo
+        laboriosam. Qui possimus praesentium non deleniti! Et illo eos totam
+        consequuntur!<img src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="align-left slide-in" /> Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Sed, libero voluptas
+        commodi placeat veniam itaque quos voluptatibus aliquid expedita
+        assumenda soluta tempora minus non. Enim laborum commodi praesentium
+        unde animi.</p> <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Adipisci ipsa commodi consectetur iste nulla repellat veniam incidunt,
+        atque voluptate corrupti ullam libero at quis unde placeat recusandae
+        numquam vitae nobis? Lorem ipsum dolor sit amet consectetur, adipisicing
+        elit. Itaque doloremque obcaecati vitae laboriosam consectetur quasi
+        dignissimos repellendus assumenda, cum ducimus in magnam earum quisquam
+        eligendi animi quis quod nesciunt. Sequi. Lorem ipsum, dolor sit amet
+        consectetur adipisicing elit. Alias voluptatem corrupti amet inventore
+        assumenda! Nesciunt unde velit autem iste ipsa. Minima porro deserunt
+        cum. Quos provident voluptatem ex obcaecati repellendus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+        perferendis illum facilis voluptatem natus officiis soluta veritatis
+        eveniet sint. Aliquid iste harum officiis fugiat iusto ullam minima
+        obcaecati sequi quae?<img src="https://images.pexels.com/photos/296282/pexels-photo-296282.jpeg?auto=compress&cs=tinysrgb&w=400" class="align-right slide-in" /> Lorem
+        ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi officia provident, facere reiciendis inventore ipsam rem dolorem, architecto dolor voluptate enim? Sunt cumque, est maiores unde hic aliquam ullam nulla.</p> <p>Facere expedita
+        itaque eum molestiae labore cumque aperiam? Esse, quas officiis ratione
+        molestias provident quod saepe laboriosam consectetur iusto excepturi
+        corporis sint! <img src="https://images.pexels.com/photos/762041/pexels-photo-762041.jpeg?auto=compress&cs=tinysrgb&w=400" class="align-left slide-in" />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque incidunt
+        est inventore mollitia! Doloremque eligendi unde dicta, officiis amet
+        fugit harum a consectetur provident dolorum est, ut perspiciatis minus
+        architecto?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic quod eaque
+        totam nesciunt dolor natus, veritatis, similique adipisci doloremque
+        illum nulla repudiandae ab error nostrum, a molestiae velit eos
+        voluptas.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+        explicabo, possimus blanditiis commodi magnam laborum perspiciatis harum
+        id nihil assumenda aperiam omnis quod laboriosam, debitis similique quo
+        unde ut temporibus!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae id tempore nesciunt quod quibusdam necessitatibus doloremque omnis eaque dignissimos aliquam corrupti non consectetur obcaecati ex, reiciendis debitis odio eveniet quisquam!</p>
+        <img src="https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?auto=compress&cs=tinysrgb&w=400" class="align-right slide-in" />
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam maiores
+        corporis, reiciendis mollitia quia necessitatibus odit inventore
+        voluptatem corrupti <p> harum explicabo nulla facere magni asperiores
+        reprehenderit qui soluta quam quas? Lorem ipsum dolor sit amet </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et distinctio ullam dolor hic. Repellat, modi, magnam voluptas repudiandae, quod optio quasi esse omnis quidem eum id dolorum vitae? Provident, animi!</p>
+        <img src="https://images.pexels.com/photos/2176593/pexels-photo-2176593.jpeg?auto=compress&cs=tinysrgb&w=400" class="align-left slide-in" />
+        consectetur adipisicing elit. Possimus sint deleniti cumque debitis
+        maxime, doloremque voluptatem culpa aspernatur! Modi, enim accusantium!
+        Ipsa corporis iste sint itaque quasi modi, repudiandae minus? Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugit quos
+        corporis voluptatem tempore. </p><p>Expedita debitis ea amet mollitia quasi hic
+        dicta, voluptates unde esse, nulla earum minus quos repellendus.
+      </p>
+    </div>
+    <script>
+        function debounce(func, wait = 20, immediate = true){
+            var timeout;
+            return function(){
+                var context = this,args =arguments;
+                var later = function(){
+                    timeout = null;
+                    if (!immediate) func.apply(context,args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later,wait);
+                if (callNow) func.apply(context, args); 
+            }
+        };
+        const slideImages = document.querySelectorAll('.slide-in');
+        function checkSlide(e){
+            console.log(e)
+           slideImages.forEach(slideImage=>{
+            const slideIn =(window.scrollY + window.innerHeight) - slideImage.height / 2;
+            
+            const imageBtm = slideImage.offsetTop + slideImage.height;
+            const isHalf = slideIn > slideImage.offsetTop;
+            const isNotScrolled = window.scrollY < imageBtm;
+            if(isHalf && isNotScrolled){
+                slideImage.classList.add('active');
+
+            }else{
+                slideImage.classList.remove('active')
+            }
+           })
+
+        }
+        window.addEventListener('scroll',debounce(checkSlide));
+    </script>
+  </body>
+</html>
